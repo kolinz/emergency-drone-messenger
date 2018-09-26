@@ -1,0 +1,194 @@
+[
+    {
+        "id": "784339de.5a0f18",
+        "type": "tab",
+        "label": "Broadcasting message",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "50235b01.df19e4",
+        "type": "watson-text-to-speech",
+        "z": "784339de.5a0f18",
+        "name": "",
+        "lang": "ja-JP",
+        "langhidden": "ja-JP",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "ja-JP_EmiVoice",
+        "voicehidden": "",
+        "format": "audio/wav",
+        "password": "",
+        "apikey": "",
+        "payload-response": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 564,
+        "y": 183,
+        "wires": [
+            [
+                "bf7c4972.3efed8"
+            ]
+        ]
+    },
+    {
+        "id": "bf7c4972.3efed8",
+        "type": "speaker out",
+        "z": "784339de.5a0f18",
+        "name": "Speaker Out",
+        "channels": "1",
+        "bitDepth": "16",
+        "sampleRate": "22050",
+        "x": 749,
+        "y": 184,
+        "wires": []
+    },
+    {
+        "id": "ae786685.d307d8",
+        "type": "exec",
+        "z": "784339de.5a0f18",
+        "command": "/home/pi/sb612a.sh",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "SB612A",
+        "x": 280,
+        "y": 40,
+        "wires": [
+            [
+                "63cd15db.64f32c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a9003986.2526b8",
+        "type": "inject",
+        "z": "784339de.5a0f18",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "ae786685.d307d8"
+            ]
+        ]
+    },
+    {
+        "id": "fb9cc809.797548",
+        "type": "change",
+        "z": "784339de.5a0f18",
+        "name": "For Human",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "str",
+                "to": "The tsunami will come out in ten minutes. Hurry up!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 351,
+        "y": 186,
+        "wires": [
+            [
+                "50235b01.df19e4",
+                "ebcb33fd.594a3"
+            ]
+        ]
+    },
+    {
+        "id": "63cd15db.64f32c",
+        "type": "switch",
+        "z": "784339de.5a0f18",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 193,
+        "wires": [
+            [
+                "fb9cc809.797548"
+            ],
+            [
+                "544f1817.c8b068"
+            ]
+        ]
+    },
+    {
+        "id": "544f1817.c8b068",
+        "type": "change",
+        "z": "784339de.5a0f18",
+        "name": "other",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "str",
+                "to": "The tsunami will come. The tsunami will come . ",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 328,
+        "y": 239,
+        "wires": [
+            [
+                "ebcb33fd.594a3",
+                "50235b01.df19e4"
+            ]
+        ]
+    },
+    {
+        "id": "ebcb33fd.594a3",
+        "type": "debug",
+        "z": "784339de.5a0f18",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 557,
+        "y": 265,
+        "wires": []
+    }
+]
