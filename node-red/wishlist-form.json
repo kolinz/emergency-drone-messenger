@@ -1,0 +1,121 @@
+[
+    {
+        "id": "abf8e435.71ff68",
+        "type": "tab",
+        "label": "Wish List form for Shelter",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4284529d.1dd7dc",
+        "type": "http in",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "url": "/supplies",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "e3874f41.c4117",
+                "d3834ea0.d4ed",
+                "9d577a91.f91ed8"
+            ]
+        ]
+    },
+    {
+        "id": "e3874f41.c4117",
+        "type": "http response",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 430,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d3834ea0.d4ed",
+        "type": "debug",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5abe74ef.d7af3c",
+        "type": "http in",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "url": "/request",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 60,
+        "wires": [
+            [
+                "dd478749.756d88"
+            ]
+        ]
+    },
+    {
+        "id": "8ce1e459.abaab8",
+        "type": "http response",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "dd478749.756d88",
+        "type": "template",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<p>A Wish List for Shelter</p>\n<form method=\"post\" action=\"/supplies\">\nbottled water 500ml:<input type=\"text\" name=\"bottled_water_500ml\" value=\"\"/><br/>\nemergency food set 3days:<input type=\"text\" name=\"emergency_food_set_3days\" value=\"\"/><br/>\n<input type=\"submit\" value=\"Submit\"/>\n</form>",
+        "output": "str",
+        "x": 440,
+        "y": 60,
+        "wires": [
+            [
+                "8ce1e459.abaab8"
+            ]
+        ]
+    },
+    {
+        "id": "9d577a91.f91ed8",
+        "type": "cloudant out",
+        "z": "abf8e435.71ff68",
+        "name": "",
+        "cloudant": "709fa6b3.5e36d8",
+        "database": "shelter_a",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 440,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "709fa6b3.5e36d8",
+        "type": "cloudant",
+        "z": "",
+        "host": "",
+        "name": ""
+    }
+]
