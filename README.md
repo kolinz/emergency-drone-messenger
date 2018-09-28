@@ -28,10 +28,12 @@ The data of the “wish list form” are stored in the database of the cloud and
    - ![flow-image2](https://github.com/kolinz/emergency-drone-messenger/blob/master/program_image_2.PNG)   
    - ![case2](https://github.com/kolinz/emergency-drone-messenger/blob/master/example_use_2.PNG)  
 
-
-
-
-
-
-
-
+## Software & Services
+| Category | Name |  |
+|:---|:---|:---|
+|Software |Node-RED v0.19.4 |Install on Raspberry pi |
+|IBM Cloud |Watson Text to Speech |https://console.bluemix.net/catalog/services/text-to-speech |
+|IBM Cloud |IBM Cloudant |https://console.bluemix.net/catalog/services/cloudant |
+|Node-RED nodes |node-red-node-watson |https://flows.nodered.org/node/node-red-contrib-speaker |
+|Node-RED nodes |node-red-contrib-speaker |https://flows.nodered.org/node/node-red-contrib-speaker |
+|Node-RED nodes |node-red-node-cf-cloudant |https://flows.nodered.org/node/node-red-node-cf-cloudant |
