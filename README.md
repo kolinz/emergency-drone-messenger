@@ -9,7 +9,7 @@ https://www.slideshare.net/secret/IDpw8kd8h66Q2D
 
 ## Consept & SourceCode
 This concept is to carry container with minimal server using drone. The drone can be freely chosen and the container can be used for various purposes.
-These sourcecode are imported to "Node-RED" and used.
+These sourcecode are imported json file to "Node-RED" and used.
 
 コンセプトは、サーバー機能付きのコンテナをドローンで運ぶことです。ドローンは自由に選べますし、コンテナは様々な使い方ができます。
 
